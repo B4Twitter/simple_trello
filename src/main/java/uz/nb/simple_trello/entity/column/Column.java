@@ -24,18 +24,4 @@ public class Column extends Auditable {
     private String icon;
 
     private boolean is_active;
-
-    @Convert(disableConversion = true)
-    @javax.persistence.Column(name = "createdat")
-    private Instant createdat;
-
-    @javax.persistence.Column(name = "createby", nullable = false)
-    private Long createby;
-
-    @Convert(disableConversion = true)
-    @javax.persistence.Column(name = "updatedat")
-    private Instant updatedat;
-
-    @javax.persistence.Column(name = "updateby")
-    private Long updateby;
 }
