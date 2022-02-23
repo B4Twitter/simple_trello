@@ -7,7 +7,7 @@ import uz.nb.simple_trello.dto.task.TaskCreateDto;
 import uz.nb.simple_trello.dto.task.TaskDto;
 import uz.nb.simple_trello.dto.task.TaskUpdateDto;
 import uz.nb.simple_trello.entity.task.Task;
-import uz.nb.simple_trello.mapper.TaskMapper;
+import uz.nb.simple_trello.exceptions.mapper.TaskMapper;
 import uz.nb.simple_trello.reposiroty.TaskRepository;
 import uz.nb.simple_trello.services.AbstractService;
 import uz.nb.simple_trello.utils.BaseUtils;

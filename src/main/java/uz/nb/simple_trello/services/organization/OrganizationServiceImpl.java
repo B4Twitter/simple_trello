@@ -7,7 +7,7 @@ import uz.nb.simple_trello.dto.organization.OrganizationCreateDto;
 import uz.nb.simple_trello.dto.organization.OrganizationDto;
 import uz.nb.simple_trello.dto.organization.OrganizationUpdateDto;
 import uz.nb.simple_trello.entity.organization.Organization;
-import uz.nb.simple_trello.mapper.OrganizationMapper;
+import uz.nb.simple_trello.exceptions.mapper.OrganizationMapper;
 import uz.nb.simple_trello.reposiroty.OrganizationRepository;
 import uz.nb.simple_trello.services.AbstractService;
 import uz.nb.simple_trello.utils.BaseUtils;

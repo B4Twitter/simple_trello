@@ -7,7 +7,7 @@ import uz.nb.simple_trello.dto.column.ColumnCreateDto;
 import uz.nb.simple_trello.dto.column.ColumnDto;
 import uz.nb.simple_trello.dto.column.ColumnUpdateDto;
 import uz.nb.simple_trello.entity.column.Column;
-import uz.nb.simple_trello.mapper.ColumnMapper;
+import uz.nb.simple_trello.exceptions.mapper.ColumnMapper;
 import uz.nb.simple_trello.reposiroty.ColumnRepository;
 import uz.nb.simple_trello.services.AbstractService;
 import uz.nb.simple_trello.utils.BaseUtils;

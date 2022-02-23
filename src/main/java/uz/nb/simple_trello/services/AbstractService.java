@@ -1,7 +1,7 @@
 package uz.nb.simple_trello.services;
 
 
-import uz.nb.simple_trello.mapper.Mapper;
+import uz.nb.simple_trello.exceptions.mapper.Mapper;
 import uz.nb.simple_trello.reposiroty.AbstractRepository;
 import uz.nb.simple_trello.utils.BaseUtils;
 import uz.nb.simple_trello.utils.validators.Validator;

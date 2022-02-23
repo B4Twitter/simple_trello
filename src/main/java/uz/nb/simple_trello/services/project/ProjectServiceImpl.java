@@ -7,7 +7,7 @@ import uz.nb.simple_trello.dto.project.ProjectCreateDto;
 import uz.nb.simple_trello.dto.project.ProjectDto;
 import uz.nb.simple_trello.dto.project.ProjectUpdateDto;
 import uz.nb.simple_trello.entity.project.Project;
-import uz.nb.simple_trello.mapper.ProjectMapper;
+import uz.nb.simple_trello.exceptions.mapper.ProjectMapper;
 import uz.nb.simple_trello.reposiroty.ProjectRepository;
 import uz.nb.simple_trello.services.AbstractService;
 import uz.nb.simple_trello.utils.BaseUtils;
