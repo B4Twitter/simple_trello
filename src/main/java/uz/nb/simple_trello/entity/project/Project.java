@@ -21,6 +21,6 @@ public class Project extends Auditable {
     private Long organizationId;
 
     @Column(name = "closed")
-    private Boolean closed;
+    private Boolean closed = false;
 
 }

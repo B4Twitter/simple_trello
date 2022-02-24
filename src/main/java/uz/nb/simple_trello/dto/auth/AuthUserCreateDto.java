@@ -10,7 +10,7 @@ public class AuthUserCreateDto implements Dto {
     private String username;
     private String password;
     private String email;
-//    private AuthRole role_id;
-//    private Long organizationId;
+    private String conPassword;
+    private Long role;
 
 }

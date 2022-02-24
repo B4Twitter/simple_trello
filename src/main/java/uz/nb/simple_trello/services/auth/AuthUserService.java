@@ -4,6 +4,7 @@ import uz.nb.simple_trello.criteria.GenericCriteria;
 import uz.nb.simple_trello.dto.auth.AuthUserCreateDto;
 import uz.nb.simple_trello.dto.auth.AuthUserDto;
 import uz.nb.simple_trello.dto.auth.AuthUserUpdateDto;
+import uz.nb.simple_trello.dto.auth.LoginDto;
 import uz.nb.simple_trello.services.base.GenericCrudService;
 
 public interface AuthUserService extends GenericCrudService<
@@ -13,4 +14,5 @@ public interface AuthUserService extends GenericCrudService<
         GenericCriteria,
         Long
         > {
+    void login(LoginDto dto);
 }

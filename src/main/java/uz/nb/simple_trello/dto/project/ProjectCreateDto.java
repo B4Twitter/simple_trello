@@ -11,6 +11,7 @@ import uz.nb.simple_trello.dto.base.Dto;
 @Builder
 public class ProjectCreateDto implements Dto {
     private String name;
+    private String description;
     private MultipartFile tz;
 
     public ProjectCreateDto(String name, MultipartFile tz) {

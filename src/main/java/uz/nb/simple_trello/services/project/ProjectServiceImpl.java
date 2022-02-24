@@ -6,6 +6,7 @@ import uz.nb.simple_trello.criteria.GenericCriteria;
 import uz.nb.simple_trello.dto.project.ProjectCreateDto;
 import uz.nb.simple_trello.dto.project.ProjectDto;
 import uz.nb.simple_trello.dto.project.ProjectUpdateDto;
+import uz.nb.simple_trello.entity.project.Project;
 import uz.nb.simple_trello.mapper.project.ProjectMapper;
 import uz.nb.simple_trello.reposiroty.project.ProjectRepository;
 import uz.nb.simple_trello.services.base.AbstractService;
@@ -32,7 +33,9 @@ public class ProjectServiceImpl extends AbstractService<
 
     @Override
     public Long create(ProjectCreateDto createDto) {
-        return null;
+        Project project = mapper.fromCreateDto(createDto);
+        project.setOrganizationId(1L);
+        return repository.save(project).getId();
     }
 
     @Override

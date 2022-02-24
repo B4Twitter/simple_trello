@@ -15,6 +15,7 @@ import uz.nb.simple_trello.services.project.ProjectService;
 @Controller
 @RequestMapping("/project/*")
 public class ProjectController extends AbstractController<ProjectService> {
+
     @Autowired
     public ProjectController(ProjectService service) {
         super(service);
@@ -29,6 +30,8 @@ public class ProjectController extends AbstractController<ProjectService> {
     public String createPage() {
         return "project/create";
     }
+
+
 
     @RequestMapping(value = "project", method = RequestMethod.GET)
     public String projectPage() {
