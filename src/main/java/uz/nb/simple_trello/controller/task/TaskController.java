@@ -5,10 +5,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-/**
- * @author Axmadjonov Eliboy, Thu 3:36 PM,2/24/2022
- */
-
 @Controller
 @RequestMapping("/task/*")
 public class TaskController {
