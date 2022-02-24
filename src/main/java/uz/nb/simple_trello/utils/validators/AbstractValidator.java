@@ -1,6 +1,5 @@
 package uz.nb.simple_trello.utils.validators;
 
-
 import uz.nb.simple_trello.exceptions.ValidationException;
 import uz.nb.simple_trello.utils.BaseUtils;
 

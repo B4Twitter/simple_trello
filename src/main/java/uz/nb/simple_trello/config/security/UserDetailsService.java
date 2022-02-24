@@ -3,21 +3,23 @@ package uz.nb.simple_trello.config.security;
 
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-import uz.nb.simple_trello.entity.auth.User;
-import uz.nb.simple_trello.reposiroty.UserRepository;
+import uz.nb.simple_trello.entity.auth.AuthUser;
+import uz.nb.simple_trello.reposiroty.auth.AuthUserRepository;
 
 @Service
 public class UserDetailsService implements org.springframework.security.core.userdetails.UserDetailsService {
 
-    private final UserRepository userRepository;
+    private final AuthUserRepository authUserRepository;
 
-    public UserDetailsService(UserRepository userRepository) {
-        this.userRepository = userRepository;
+    public UserDetailsService(AuthUserRepository authUserRepository) {
+        this.authUserRepository = authUserRepository;
     }
+
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user = userRepository.findUserByUsername(username);
+        AuthUser user = authUserRepository.findAuthUserByUsername(username)
+                .orElseThrow(() -> new UsernameNotFoundException("User not found"));
         return new UserDetails(user);
     }
 }

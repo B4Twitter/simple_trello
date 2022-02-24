@@ -1,10 +1,11 @@
 package uz.nb.simple_trello.dto.auth;
 
-import uz.pdp.dto.GenericDto;
-
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import uz.nb.simple_trello.dto.base.GenericDto;
+@Setter
+@Getter
+@Builder(builderMethodName = "childBuilder")
 public class AuthUserUpdateDto extends GenericDto {
-    private String username;
-    private String  phoneNumber;
-    private String  email;
-    private boolean blocked;
 }

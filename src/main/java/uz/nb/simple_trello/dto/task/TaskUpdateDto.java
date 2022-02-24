@@ -1,21 +1,24 @@
 package uz.nb.simple_trello.dto.task;
 
+import lombok.Builder;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
-import uz.nb.simple_trello.dto.GenericDto;
+import uz.nb.simple_trello.dto.base.GenericDto;
 
-import java.time.Instant;
+import java.time.LocalDateTime;
 
-@Getter
+/**
+ * @Author Aziza Tojiboyeva
+ */
 @Setter
-@NoArgsConstructor
+@Getter
+@Builder(builderMethodName = "childBuilder")
 public class TaskUpdateDto extends GenericDto {
+
     private String name;
     private String description;
-    private String level;
-    private Instant deadline;
-    private boolean completed;
-    private Long project_id;
-    private Long column_id;
+//    private Long level;
+//    private Long priority;
+    private LocalDateTime deadline;
+
 }

@@ -1,21 +1,22 @@
 package uz.nb.simple_trello.entity.project;
 
+import lombok.Getter;
+import lombok.Setter;
+import uz.nb.simple_trello.entity.base.Auditable;
 
-import uz.nb.simple_trello.entity.Auditable;
-
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
 @Entity
+@Setter
+@Getter
 @Table(name = "project_member", schema = "etm_b4")
 public class ProjectMember extends Auditable {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
-    private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "project_id")
-    private Project project;
+
+    @Column(name = "project_id",nullable = false)
+    private Long project;
 
     @Column(name = "user_id")
     private Long userId;
@@ -23,20 +24,4 @@ public class ProjectMember extends Auditable {
     @Column(name = "is_lead")
     private Boolean isLead;
 
-
-    public Project getProject() {
-        return project;
-    }
-
-    public void setProject(Project project) {
-        this.project = project;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 }

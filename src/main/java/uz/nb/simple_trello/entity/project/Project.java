@@ -1,30 +1,24 @@
 package uz.nb.simple_trello.entity.project;
 
-
-import uz.nb.simple_trello.entity.Auditable;
+import lombok.Getter;
+import lombok.Setter;
+import uz.nb.simple_trello.entity.base.Auditable;
 import uz.nb.simple_trello.entity.organization.Organization;
 
 import javax.persistence.*;
-import java.time.Instant;
 
 @Entity
+@Setter
+@Getter
 @Table(name = "project", schema = "etm_b4")
 public class Project extends Auditable {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
-    private Long id;
 
-    @Lob
     @Column(name = "name")
     private String name;
 
-    @Column
     private String description;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "organization_id")
-    private Organization organization;
+    private Long organizationId;
 
     @Column(name = "closed")
     private Boolean closed;

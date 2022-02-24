@@ -1,17 +1,13 @@
 package uz.nb.simple_trello.config.security;
 
 import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import uz.nb.simple_trello.entity.auth.User;
-import uz.nb.simple_trello.entity.auth.UserRole;
+import uz.nb.simple_trello.entity.auth.AuthRole;
+import uz.nb.simple_trello.entity.auth.AuthUser;
 
 import java.util.*;
 
-@Getter
-@Setter
 public class UserDetails implements org.springframework.security.core.userdetails.UserDetails {
 
     @Getter
@@ -24,19 +20,24 @@ public class UserDetails implements org.springframework.security.core.userdetail
     private Set<GrantedAuthority> authorities;
 
 
-    public UserDetails(User user) {
+    public UserDetails(AuthUser user) {
         this.id = user.getId();
         this.username = user.getUsername();
         this.password = user.getPassword();
+        this.code = user.getCode();
+        this.blocked = user.isBlocked();
+        this.active = user.isActive();
         processAuthorities(user);
     }
 
-    private void processAuthorities(User user) {
+    private void processAuthorities(AuthUser user) {
         authorities = new HashSet<>();
-        UserRole role = user.getRole();
+        AuthRole role = user.getRole();
 
         if (Objects.isNull(role)) return;
-        authorities.add(new SimpleGrantedAuthority("ROLE_" + role.name()));
+        authorities.add(new SimpleGrantedAuthority("ROLE_" + role.getCode()));
+        if (Objects.isNull(role.getPermissions())) return;
+        role.getPermissions().forEach(permission -> authorities.add(new SimpleGrantedAuthority(permission.getCode())));
     }
 
     @Override

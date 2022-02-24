@@ -10,7 +10,7 @@ import uz.nb.simple_trello.utils.validators.AbstractValidator;
 
 
 @Component
-public class ProjectValidator extends AbstractValidator<ProjectCreateDto, ProjectUpdateDto, Long> {
+public class ProjectValidator extends AbstractValidator<ProjectCreateDto, ProjectUpdateDto,Long> {
 
     @Autowired
     protected ProjectValidator(BaseUtils baseUtils) {

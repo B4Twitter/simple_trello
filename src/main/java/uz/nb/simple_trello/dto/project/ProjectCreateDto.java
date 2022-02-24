@@ -3,27 +3,18 @@ package uz.nb.simple_trello.dto.project;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
-import uz.nb.simple_trello.dto.Dto;
-import uz.nb.simple_trello.entity.organization.Organization;
+import org.springframework.web.multipart.MultipartFile;
+import uz.nb.simple_trello.dto.base.Dto;
 
-import java.time.Instant;
-
-@Getter
 @Setter
+@Getter
 @Builder
 public class ProjectCreateDto implements Dto {
     private String name;
-    private String tzPath;
-    private Organization organization;
-    private String email;
-    private Boolean closed;
+    private MultipartFile tz;
 
-    public ProjectCreateDto(String name, String tzPath, Organization organization, String email, Boolean closed) {
+    public ProjectCreateDto(String name, MultipartFile tz) {
         this.name = name;
-        this.tzPath = tzPath;
-        this.organization = organization;
-        this.email = email;
-        this.closed = closed;
-
+        this.tz = tz;
     }
 }

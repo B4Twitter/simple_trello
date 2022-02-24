@@ -3,25 +3,21 @@ package uz.nb.simple_trello.dto.project;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
-import uz.nb.simple_trello.dto.GenericDto;
-import uz.nb.simple_trello.entity.organization.Organization;
+import uz.nb.simple_trello.dto.base.GenericDto;
 
-@Getter
+
 @Setter
+@Getter
 public class ProjectDto extends GenericDto {
-
     private String name;
-    private Organization organization;
-    private String email;
-    private Boolean closed;
-
+    private Long organizationId;
+    private boolean closed;
 
     @Builder(builderMethodName = "childBuilder")
-    public ProjectDto(Long id, String name, Organization organization, String email, Boolean closed) {
+    public ProjectDto(Long id, String name, Long organizationId, boolean closed) {
         super(id);
         this.name = name;
-        this.organization = organization;
-        this.email = email;
+        this.organizationId = organizationId;
         this.closed = closed;
     }
 }

@@ -1,44 +1,35 @@
 package uz.nb.simple_trello.entity.task;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
-import uz.nb.simple_trello.entity.Auditable;
+import uz.nb.simple_trello.entity.base.Auditable;
 import uz.nb.simple_trello.entity.project.Project;
 
 import javax.persistence.*;
-import java.time.Instant;
+import java.time.LocalDateTime;
 
-@Getter
 @Setter
+@Getter
 @Entity
-@NoArgsConstructor
-@AllArgsConstructor
 public class Task extends Auditable {
 
     @Column(nullable = false)
     private String name;
 
-    @Column(nullable = false)
     private String description;
 
-    @Column(nullable = false)
-    private String level;
+
+    private Long levelId;
 
 
-    @Convert(disableConversion = true)
-    @Column(name = "deadline")
-    private Instant deadline;
+    private Long projectId;
+
+    private Long priorityId;
+
+    @Column(columnDefinition = " timestamp ")
+    private LocalDateTime deadline;
 
     private boolean completed;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "project_id")
-    private Project project;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "column_id")
-    private uz.nb.simple_trello.entity.column.Column column;
 
 }
