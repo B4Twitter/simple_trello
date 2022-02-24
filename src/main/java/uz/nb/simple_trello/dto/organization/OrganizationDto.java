@@ -13,19 +13,17 @@ public class OrganizationDto extends GenericDto {
     private String logo;
     private String code;
     private String email;
-    private String location;
+    private String address;
     private Long owner;
 
 
     @Builder(builderMethodName = "childBuilder")
-    public OrganizationDto(Long id, String name, String logo, String code, String location, String email, Long owner) {
+    public OrganizationDto(Long id, String name, String code, String address, String email, Long owner) {
         super(id);
         this.name = name;
-        this.logo = logo;
         this.code = code;
         this.email = email;
-        this.location = location;
-        this.owner = owner;
+        this.address = address;
     }
 }
 

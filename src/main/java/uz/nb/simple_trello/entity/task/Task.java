@@ -17,10 +17,15 @@ import java.time.Instant;
 @AllArgsConstructor
 public class Task extends Auditable {
 
+    @Column(nullable = false)
     private String name;
+
+    @Column(nullable = false)
     private String description;
 
+    @Column(nullable = false)
     private String level;
+
 
     @Convert(disableConversion = true)
     @Column(name = "deadline")

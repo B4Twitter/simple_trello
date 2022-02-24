@@ -12,7 +12,6 @@ import uz.nb.simple_trello.entity.organization.Organization;
 @NoArgsConstructor
 public class ProjectUpdateDto extends GenericDto {
     private String name;
-    private String tzPath;
     private Organization organization;
     private String email;
     private Boolean closed;

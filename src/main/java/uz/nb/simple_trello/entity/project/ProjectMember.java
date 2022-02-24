@@ -23,21 +23,6 @@ public class ProjectMember extends Auditable {
     @Column(name = "is_lead")
     private Boolean isLead;
 
-    public Boolean getIsLead() {
-        return isLead;
-    }
-
-    public void setIsLead(Boolean isLead) {
-        this.isLead = isLead;
-    }
-
-    public Long getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Long userId) {
-        this.userId = userId;
-    }
 
     public Project getProject() {
         return project;

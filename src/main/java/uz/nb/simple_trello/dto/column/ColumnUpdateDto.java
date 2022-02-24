@@ -16,16 +16,16 @@ public class ColumnUpdateDto extends GenericDto {
     private Integer order;
     private String icon;
 
-    private Instant updatedat;
-    private Long updateby;
+//    private Instant updatedat;
+//    private Long updateby;
 
-    public ColumnUpdateDto(Long id, String name, Project project, Integer order, String icon, Instant updatedat, Long updateby) {
+    public ColumnUpdateDto(Long id, String name, Project project, Integer order, String icon/*, Instant updatedat, Long updateby*/) {
         super(id);
         this.name = name;
         this.project = project;
         this.order = order;
         this.icon = icon;
-        this.updatedat = updatedat;
-        this.updateby = updateby;
+//        this.updatedat = updatedat;
+//        this.updateby = updateby;
     }
 }

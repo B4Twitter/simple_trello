@@ -17,16 +17,13 @@ public class ProjectCreateDto implements Dto {
     private Organization organization;
     private String email;
     private Boolean closed;
-    private Instant createdat;
-    private Long createby;
 
-    public ProjectCreateDto(String name, String tzPath, Organization organization, String email, Boolean closed, Instant createdat, Long createby) {
+    public ProjectCreateDto(String name, String tzPath, Organization organization, String email, Boolean closed) {
         this.name = name;
         this.tzPath = tzPath;
         this.organization = organization;
         this.email = email;
         this.closed = closed;
-        this.createdat = createdat;
-        this.createby = createby;
+
     }
 }

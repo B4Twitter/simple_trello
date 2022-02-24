@@ -16,24 +16,16 @@ public class TaskCreateDto implements Dto {
     private String level;
     private Instant deadline;
     private String priority;
-    private Long parent_id;
-    private boolean completed;
     private Long project_id;
     private Long column_id;
-    private Instant createdat;
-    private Long createby;
 
-    public TaskCreateDto(String name, String description, String level, Instant deadline, String priority, Long parent_id, boolean completed, Long project, Long column, Instant createdat, Long createby) {
+    public TaskCreateDto(String name, String description, String level, Instant deadline, String priority, Long projectId, Long column) {
         this.name = name;
         this.description = description;
         this.level = level;
         this.deadline = deadline;
         this.priority = priority;
-        this.parent_id = parent_id;
-        this.completed = completed;
-        this.project_id = project;
+        this.project_id = projectId;
         this.column_id = column;
-        this.createdat = createdat;
-        this.createby = createby;
     }
 }

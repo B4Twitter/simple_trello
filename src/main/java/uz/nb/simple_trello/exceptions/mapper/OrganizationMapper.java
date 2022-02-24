@@ -16,12 +16,4 @@ public interface OrganizationMapper extends BaseMapper<
         OrganizationDto,
         OrganizationCreateDto,
         OrganizationUpdateDto> {
-
-    @Override
-    @Mapping(target = "logo", ignore = true)
-    Organization fromCreateDto(OrganizationCreateDto organizationCreateDto);
-
-    @Override
-    @Mapping(target = "logo", ignore = true)
-    Organization fromUpdateDto(OrganizationUpdateDto organizationUpdateDto);
 }
