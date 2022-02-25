@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <span th:include="fragment.html :: header('Home')"></span>
+    <link rel="stylesheet" th:href="@{/css/main-page.css}"/>
+</head>
+<body>
+<nav class="navbar sticky-top bg-dark flex-md-nowrap p-0">
+    <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Company name</a>
+    <ul class="navbar-nav px-3">
+        <li class="nav-item text-nowrap">
+            <a class="nav-link" th:href="@{/auth/logout}">Sign out</a>
+        </li>
+    </ul>
+</nav>
+
+<div class="container-fluid">
+    <div class="row">
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+            <div class="sidebar-sticky">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/">
+                            <span data-feather="home"></span>
+                            Dashboard <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="collapse"
+                           data-target="#organization">👇 Organization
+                        </a>
+                        <div id="organization" class="collapse pl-3">
+                            <a class="nav-link" th:href="@{/organization/create}">Create Organization</a>
+                            <a class="nav-link" th:href="@{/organization/list}">Organizations List</a>
+                            <a class="nav-link" th:href="@{/organization/detail/}">Organization Detail</a>
+                            <a class="nav-link" th:href="@{/organization/delete}">Delete Organization</a>
+                            <a class="nav-link" th:href="@{/organization/block}">Block Organization</a>
+                            <a class="nav-link" th:href="@{/organization/unblock}">Unblock Organization</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="collapse"
+                           data-target="#project">👇 Projects
+                        </a>
+                        <div id="project" class="collapse pl-3">
+                            <a class="nav-link" th:href="@{/project/create}">Create Organization</a>
+                            <a class="nav-link" th:href="@{/project/list}">Organizations List</a>
+                            <a class="nav-link" th:href="@{/project/detail/}">Organization Detail</a>
+                            <a class="nav-link" th:href="@{/project/delete}">Delete Organization</a>
+                            <a class="nav-link" th:href="@{/project/block}">Block Organization</a>
+                            <a class="nav-link" th:href="@{/project/unblock}">Unblock Organization</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+                <h1 class="h2">Projects</h1>
+
+                <div class="btn-toolbar mb-2 mb-md-0">
+                    <div class="btn-group mr-2">
+                        <button class="btn btn-sm btn-outline-secondary">Share</button>
+                        <button class="btn btn-sm btn-outline-secondary">Export</button>
+                    </div>
+                    <button class="btn btn-sm btn-outline-secondary dropdown-toggle">
+                        <span data-feather="calendar"></span>
+                        This week
+                    </button>
+                </div>
+            </div>
+            <h2>Projects</h2>
+            <div class="table-responsive">
+                <table class="table table-striped table-sm">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Header</th>
+                        <th>Header</th>
+                        <th>Header</th>
+                        <th>Header</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>1,001</td>
+                        <td>Lorem</td>
+                        <td>ipsum</td>
+                        <td>dolor</td>
+                        <td>sit</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+
+    </div>
+</div>
+
+<script th:include="fragment.html :: js-files">
+
+</script>
+
+</body>
+</html>

@@ -42,7 +42,7 @@ public class AuthUserController extends AbstractController<AuthUserService> {
 
     @RequestMapping(value = "login", method = RequestMethod.GET)
     public String loginPage() {
-        return "/auth/login";
+        return "auth/login";
     }
 
 

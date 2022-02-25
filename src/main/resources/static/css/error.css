@@ -1,0 +1,23 @@
+* {
+    font-family: "Roboto Thin", sans-serif;
+    background: #cfcfde;
+}
+
+.my_container {
+    display: grid;
+    grid-auto-columns: auto;
+    height: 100vh;
+    align-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.my_container h1 {
+    font-size: 70px;
+    font-weight: bold;
+    margin-bottom: 1.2rem;
+}
+
+.my_container p{
+    word-spacing: 5px;
+}

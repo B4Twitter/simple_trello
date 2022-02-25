@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Error</title>
+    <link rel="stylesheet" th:href="@{/css/error.css}">
+
+</head>
+<body>
+<div class="my_container">
+    <h1 th:text="${code}"></h1>
+    <p>The page you are looking for not found</p>
+    <a th:href="@{/}">Home</a>
+</div>
+
+</body>
+</html>
