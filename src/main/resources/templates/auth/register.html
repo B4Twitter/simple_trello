@@ -1,20 +1,16 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <span th:include="fragment.html :: header('Register')"></span>
     <link rel="stylesheet" th:href="@{/css/register.css}">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-            href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;600;700&family=Red+Hat+Display&display=swap"
-            rel="stylesheet">
-
-
-
 </head>
+<body>
+
 <div class="container">
-    <form th:action="@{/auth/create}" method="post">
+    <form method="post" th:action="@{/auth/create}">
         <div class="login-input">
             <label>
                 <input type="text" placeholder="Enter your Username" name="username">
@@ -32,10 +28,11 @@
                 <input type="password" placeholder="Confirm your password" name="conPassword">
             </label>
             <div>
-                <select name="roleId" id="roleId">
+
+                <select name="roleId" class="form-select m-5" aria-label="Default select example">
+                    <option selected>Open this select menu</option>
                     <option value="3">USER</option>
                     <option value="2">ADMIN</option>
-                    <br>
                 </select>
             </div>
         </div>
@@ -50,4 +47,5 @@
 
 </section>
 </body>
+
 </html>

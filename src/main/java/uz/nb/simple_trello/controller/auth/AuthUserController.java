@@ -37,7 +37,7 @@ public class AuthUserController extends AbstractController<AuthUserService> {
     @RequestMapping(value = "create", method = RequestMethod.POST)
     public String create(@ModelAttribute AuthUserCreateDto dto) {
         service.create(dto);
-        return "redirect:/index/index";
+        return "redirect:/";
     }
 
     @RequestMapping(value = "login", method = RequestMethod.GET)

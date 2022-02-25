@@ -8,6 +8,5 @@ import uz.nb.simple_trello.dto.base.GenericDto;
 @Getter
 @Builder(builderMethodName = "childBuilder")
 public class AuthUserDto extends GenericDto {
-
     private String name;
 }
