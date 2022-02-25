@@ -51,11 +51,10 @@ public class AuthUserServiceImpl extends
 
     @Override
     public Long create(AuthUserCreateDto createDto) {
+        createDto.setRole(authRoleRepository.getAuthRoleById(createDto.getRoleId()).get());
         AuthUser user = mapper.fromCreateDto(createDto);
         user.setPassword(encoder.encode(createDto.getPassword()));
         user.setOrganizationId(1L);
-
-        user.setRole(authRoleRepository.getAuthRoleById(createDto.getRole()).get());
         user.setCreatedBy(new AuditAwareImpl().getCurrentAuditor().get());
         user.setCode(UUID.randomUUID());
         repository.save(user);

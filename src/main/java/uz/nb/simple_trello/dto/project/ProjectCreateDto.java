@@ -8,7 +8,6 @@ import uz.nb.simple_trello.dto.base.Dto;
 
 @Setter
 @Getter
-@Builder
 public class ProjectCreateDto implements Dto {
     private String name;
     private String description;

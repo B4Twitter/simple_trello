@@ -40,7 +40,7 @@ public class ProjectColumnController extends AbstractController<ProjectColumnSer
 
     @RequestMapping(value = "get", method = RequestMethod.GET)
     public String getAll(Model model) {
-        model.addAttribute("projects", service.getAll(new GenericCriteria());
+        model.addAttribute("projects", service.getAll(new GenericCriteria()));
         return "project_column/create";
     }
 
