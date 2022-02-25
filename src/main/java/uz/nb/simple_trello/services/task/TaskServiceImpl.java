@@ -5,13 +5,17 @@ import uz.nb.simple_trello.criteria.GenericCriteria;
 import uz.nb.simple_trello.dto.task.TaskCreateDto;
 import uz.nb.simple_trello.dto.task.TaskDto;
 import uz.nb.simple_trello.dto.task.TaskUpdateDto;
+import uz.nb.simple_trello.entity.task.Task;
 import uz.nb.simple_trello.mapper.task.TaskMapper;
 import uz.nb.simple_trello.reposiroty.task.TaskRepository;
 import uz.nb.simple_trello.services.base.AbstractService;
 import uz.nb.simple_trello.utils.BaseUtils;
 import uz.nb.simple_trello.utils.validators.task.TaskValidator;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
 
 /**
  * @Author Aziza Tojiboyeva
@@ -31,27 +35,42 @@ public class TaskServiceImpl extends AbstractService<
 
     @Override
     public Long create(TaskCreateDto createDto) {
-        return null;
+        Task task = mapper.fromCreateDto(createDto);
+        return repository.save(task).getId();
+
     }
 
     @Override
-    public Void delete(Long id) {
-        return null;
+    public void delete(Long id) {
+        Optional<Task> task = repository.findById(id);
+        if (task.isEmpty()) {
+            throw new RuntimeException("User not found");
+
+        }
     }
 
+
     @Override
-    public Void update(TaskUpdateDto updateDto) {
-        return null;
+    public void update(TaskUpdateDto updateDto) {
+        Task task = mapper.fromUpdateDto(updateDto);
+        repository.save(task);
     }
 
     @Override
     public List<TaskDto> getAll(GenericCriteria criteria) {
-        return null;
+        List<Task> tasks = repository.findAll();
+        List<TaskDto> tasksD = new ArrayList<>();
+        for (Task task : tasks) {
+            TaskDto taskDto = mapper.toDto(task);
+            tasksD.add(taskDto);
+        }
+        return tasksD;
     }
 
     @Override
     public TaskDto get(Long id) {
-        return null;
+        Optional<Task> task = repository.findById(id);
+        return mapper.toDto(task.get());
     }
 
     @Override

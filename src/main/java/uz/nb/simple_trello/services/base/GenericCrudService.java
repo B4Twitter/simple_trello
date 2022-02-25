@@ -22,8 +22,8 @@ public interface GenericCrudService<
 
     K create(CD createDto);
 
-    Void delete(K id);
+    void delete(K id);
 
-    Void update(UD updateDto);
+    void update(UD updateDto);
 
 }

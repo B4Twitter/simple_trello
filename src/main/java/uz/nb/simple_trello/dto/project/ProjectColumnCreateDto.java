@@ -8,5 +8,6 @@ import uz.nb.simple_trello.dto.base.Dto;
 @Getter
 public class ProjectColumnCreateDto implements Dto {
     private String name;
+    private int position;
     private Long project_id;
 }

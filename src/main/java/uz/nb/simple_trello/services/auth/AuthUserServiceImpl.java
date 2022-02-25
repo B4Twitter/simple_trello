@@ -63,13 +63,11 @@ public class AuthUserServiceImpl extends
     }
 
     @Override
-    public Void delete(Long id) {
-        return null;
+    public void delete(Long id) {
     }
 
     @Override
-    public Void update(AuthUserUpdateDto updateDto) {
-        return null;
+    public void update(AuthUserUpdateDto updateDto) {
     }
 
 

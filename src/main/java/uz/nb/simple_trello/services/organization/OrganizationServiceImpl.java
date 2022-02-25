@@ -49,16 +49,14 @@ public class OrganizationServiceImpl extends
     }
 
     @Override
-    public Void delete(Long id) {
+    public void delete(Long id) {
         repository.deleteById(id);
-        return null;
     }
 
     @Override
-    public Void update(OrganizationUpdateDto updateDto) {
+    public void update(OrganizationUpdateDto updateDto) {
         Organization organization = mapper.fromUpdateDto(updateDto);
         repository.save(organization);
-        return null;
     }
 
     @Override

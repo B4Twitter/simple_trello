@@ -13,7 +13,10 @@ import uz.nb.simple_trello.services.base.AbstractService;
 import uz.nb.simple_trello.utils.BaseUtils;
 import uz.nb.simple_trello.utils.validators.project.ProjectValidator;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
 
 
 @Service
@@ -39,23 +42,43 @@ public class ProjectServiceImpl extends AbstractService<
     }
 
     @Override
-    public Void delete(Long id) {
-        return null;
+    public void delete(Long id) {
+        Optional<Project> project = repository.findById(id);
+        if (project.isEmpty()) {
+            throw new RuntimeException("Pr not found");
+        }
+        repository.delete(project.get());
     }
 
     @Override
-    public Void update(ProjectUpdateDto updateDto) {
-        return null;
+    public void update(ProjectUpdateDto updateDto) {
+        Optional<Project> project = repository.findById(updateDto.getId());
+        if (project.isEmpty()) {
+            throw new RuntimeException("Project not found");
+        }
+        Project project1 = mapper.fromUpdateDto(updateDto);
+        repository.save(project1);
     }
 
     @Override
     public List<ProjectDto> getAll(GenericCriteria criteria) {
-        return null;
+        List<Project> projects = repository.findAll();
+        List<ProjectDto> projectsDto = new ArrayList<>();
+        for (Project project : projects) {
+            ProjectDto projectDto = mapper.toDto(project);
+            projectsDto.add(projectDto);
+        }
+        return projectsDto;
     }
 
     @Override
     public ProjectDto get(Long id) {
-        return null;
+        Project project = repository.getById(id);
+
+        if (Objects.isNull(project)) {
+            throw new RuntimeException("Project not found");
+        }
+        return mapper.toDto(project);
     }
 
     @Override
