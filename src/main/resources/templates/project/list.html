@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<span th:include="fragment.html :: header('Organization')">
+</span>
+<style>
+    .logos {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+    }
+</style>
+<body>
+<header>
+    <section th:include="fragment.html :: navbar"></section>
+</header>
+<main>
+    <table class="table">
+        <thead class="thead-light">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="project,iter : ${projects}">
+            <th th:text="${iter.count}"></th>
+            <th th:text="${project.name}"></th>
+            <th th:text="${project.description}"></th>
+            <th class="icons">
+                <a th:href="@{/templates/project/detail/{id}/(id = ${project.id})}">👁</a>
+                <a href="#">🔐</a>
+                <a href="#">🔓</a>
+                <a th:href="@{/templates/organizations/delete/{id}(id=${project.id})}">🗑</a>
+                <a th:href="@{/templates/organizations/update/{id}(id=${project.id})}">📝</a>
+            </th>
+        </tr>
+        </tbody>
+    </table>
+</main>
+<footer>
+    <section th:include="fragment.html :: js-files"></section>
+</footer>
+</body>
+</html>

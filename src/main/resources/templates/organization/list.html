@@ -1,7 +1,14 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:include="fragment.html :: header('Organizations')">
-</head>
+<span th:include="fragment.html :: header('Organization')">
+</span>
+<style>
+    .logos {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+    }
+</style>
 <body>
 <header>
     <section th:include="fragment.html :: navbar"></section>
@@ -15,30 +22,30 @@
             <th scope="col">Name</th>
             <th scope="col">Email</th>
             <th scope="col">Code</th>
-            <th scope="col">Location</th>
-            <th scope="col">Action</th>
+            <th scope="col">Projects</th>
         </tr>
         </thead>
         <tbody>
         <tr th:each="organization,iter :  ${organizations}">
             <th th:text="${iter.count}"></th>
-            <th th:text="${organization.logo}"></th>
+            <th><img class="logos" th:src="@{${organization.logo}}" alt=""></th>
             <th th:text="${organization.name}"></th>
             <th th:text="${organization.email}"></th>
+            <th th:text="${organization.code}"></th>
             <th th:text="${organization.code}"></th>
             <th class="icons">
                 <a th:href="@{/templates/organizations/detail/{id}/(id = ${organization.id})}">👁</a>
                 <a href="#">🔐</a>
                 <a href="#">🔓</a>
-                <a th:href="@{/templates/organizations/delete/{id}/(id=${organization.id})}">🗑</a>
-                <a th:href="@{/templates/organizations/update/{id}/(id=${organization.id})}">📝</a>
+                <a th:href="@{/templates/organizations/delete/{id}(id=${organization.id})}">🗑</a>
+                <a th:href="@{/templates/organizations/update/{id}(id=${organization.id})}">📝</a>
             </th>
         </tr>
         </tbody>
     </table>
 </main>
 <footer>
-    <section th:include="fragment.html :: js"></section>
+    <section th:include="fragment.html :: js-files"></section>
 </footer>
 </body>
 </html>

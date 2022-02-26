@@ -7,9 +7,6 @@ import uz.nb.simple_trello.config.security.UserDetails;
 
 import java.util.Optional;
 
-/**
- * @Author Aziza Tojiboyeva
- */
 @Component
 public class AuditAwareImpl implements AuditorAware<Long> {
 

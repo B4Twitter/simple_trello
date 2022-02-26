@@ -18,12 +18,13 @@
 
 .img {
     width: 100%;
-    height: 100vh;
+    height: 60%;
+    background-repeat: no-repeat;
 }
 
 .login-form {
     width: 100%;
-    margin: auto;
+    margin: 200px auto;
 }
 
 .login-form p, h1,a {
@@ -37,8 +38,4 @@
 
 .login-form a {
     display: inline-block;
-}
-
-.img-logo {
-
 }

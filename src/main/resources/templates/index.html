@@ -15,7 +15,20 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;600;700&family=Red+Hat+Display&family=Rubik:wght@400;500;600;700&display=swap"
       rel="stylesheet">
-</head>
+
+<style>
+    .box-card {
+        padding-top: 50px;
+        text-align: center;
+        height: 160px;
+    }
+
+    .wrapper-box {
+        margin-bottom: 30px;
+        margin-top: 40px;
+    }
+</style>
+
 
 <body>
 
@@ -84,21 +97,22 @@
 
         </nav>
 
-        <div class="container">
-            <table class="table">
-                <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Name</th>
-                    <th>email</th>
-                    <th>code</th>
-                </tr>
-                </thead>
-                <tbody>
-
-                </tbody>
-            </table>
+        <div class="row">
+            <div class="col-md-4 wrapper-box">
+                <div class="card box-card">
+                    <a sec:authorize="hasRole('SUPER_USER')" th:href="@{/organization/list}">Organization list</a>
+                    <a sec:authorize="hasRole('ADMIN')" th:href="@{/project/list}">Project list</a>
+                    <a sec:authorize="hasRole('USER')" th:href="@{/task/list}">Task list</a>
+                </div>
+            </div>
+            <div class="col-md-4 wrapper-box">
+                <div class="card box-card">
+                    <a th:href="@{/auth/update}">Edit profile</a>
+                </div>
+            </div>
         </div>
+
+
     </aside>
 </header>
 

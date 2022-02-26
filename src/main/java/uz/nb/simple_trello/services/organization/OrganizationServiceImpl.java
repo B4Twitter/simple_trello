@@ -43,7 +43,6 @@ public class OrganizationServiceImpl extends
         organization.setLogo(logoPath);
         organization.setOwner(new AuditAwareImpl().getCurrentAuditor().get());
         organization.setCreatedBy(new AuditAwareImpl().getCurrentAuditor().get());
-        organization.setLastModifiedBy(new AuditAwareImpl().getCurrentAuditor().get());
         repository.save(organization);
         return organization.getId();
     }

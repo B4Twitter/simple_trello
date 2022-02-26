@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import uz.nb.simple_trello.controller.base.AbstractController;
 import uz.nb.simple_trello.dto.auth.AuthUserCreateDto;
+import uz.nb.simple_trello.dto.auth.AuthUserUpdateDto;
 import uz.nb.simple_trello.dto.auth.LoginDto;
 import uz.nb.simple_trello.services.auth.AuthUserService;
 
@@ -40,6 +41,19 @@ public class AuthUserController extends AbstractController<AuthUserService> {
         return "redirect:/";
     }
 
+
+    @RequestMapping(value = "update", method = RequestMethod.GET)
+    public String updatePage() {
+        return "auth/update";
+    }
+
+
+    @RequestMapping(value = "update", method = RequestMethod.POST)
+    public String update(@ModelAttribute AuthUserUpdateDto dto) {
+        service.update(dto);
+        return "redirect:/";
+    }
+
     @RequestMapping(value = "login", method = RequestMethod.GET)
     public String loginPage() {
         return "auth/login";
@@ -49,7 +63,9 @@ public class AuthUserController extends AbstractController<AuthUserService> {
     @RequestMapping(value = "login", method = RequestMethod.POST)
     public String login(@ModelAttribute LoginDto dto) {
         service.login(dto);
-        return "/";
+        return "redirect:/";
     }
+
+
 
 }

@@ -23,10 +23,6 @@ public class ProjectController extends AbstractController<ProjectService> {
         super(service);
     }
 
-    @RequestMapping(value = "list")
-    public String homePage(Model model) {
-        return "index/index";
-    }
 
 
     @PreAuthorize("hasAnyRole('SUPER_USER', 'ADMIN')")
@@ -50,9 +46,10 @@ public class ProjectController extends AbstractController<ProjectService> {
 
     @RequestMapping(value = "list", method = RequestMethod.GET)
     public String listPage(Model model) {
-        model.addAttribute("projetcts", service.getAll(new GenericCriteria()));
+        model.addAttribute("projects", service.getAll(new GenericCriteria()));
         return "project/list";
     }
+
 
     @RequestMapping(value = "update/{id}", method = RequestMethod.GET)
     public String updatePage(@PathVariable(name = "id") Long id, Model model) {
